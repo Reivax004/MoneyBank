@@ -1,5 +1,7 @@
 package com.example.domain;
 
+import java.sql.Date;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -9,20 +11,35 @@ public class User {
     @Id @GeneratedValue
     private Long id;
 
-    private String name;
+    private String lastname;
+    private String firstname;
+    private Date birthdate;
     private String email;
+    private String password;
 
     public User() {}
 
-    public User(String name, String email) {
-        this.name = name;
+    public User(String lastname, String email, Date birthdate, String password) {
+        this.lastname = lastname;
         this.email = email;
+        this.birthdate = birthdate;
+        this.password = password;
     }
 
     public Long getId() { return id; }
-    public String getName() { return name; }
+    public String getFirstName() { return lastname; }
+    public String getLastName() { return firstname; }
     public String getEmail() { return email; }
+    public Date getBirthdate() { return birthdate; }
+    public Double getMoyenne(){
+        //TODO
+        return null; }
+    public Double getEcartType(){
+        //TODO
+        return null; }
 
-    public void setName(String name) { this.name = name; }
+    public void setLastName(String lastname) { this.lastname = lastname; }
+    public void setFirstName(String firstname) { this.firstname = firstname; }
     public void setEmail(String email) { this.email = email; }
+    public void setPassword(String password) { this.password = password;}
 }
